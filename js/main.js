@@ -1,5 +1,4 @@
 // 검색창
-
 const searchEl = document.querySelector('.search');
 const searchInputEl = searchEl.querySelector('input');
 
@@ -19,8 +18,8 @@ searchInputEl.addEventListener('blur', function () {
   searchInputEl.setAttribute('placeholder', '');
 });
 
-// 배지
 
+// 배지
 const badgeEl = document.querySelector('header .badges');
 
 window.addEventListener('scroll', _.throttle(function () {
@@ -42,6 +41,7 @@ window.addEventListener('scroll', _.throttle(function () {
 // _.throttle(함수, 시간);
 // gsap.to(요소, 지속시간, 옵션);
 
+
 // VISUAL
 const fadeEls = document.querySelectorAll('.visual .fade-in');
 fadeEls.forEach(function (fadeEl, index) {
@@ -51,6 +51,7 @@ fadeEls.forEach(function (fadeEl, index) {
   });
 });
 
+
 // SWIPER
 // new Swiper(선택자, 옵션)
 new Swiper('.notice-line .swiper-container', {
@@ -58,6 +59,7 @@ new Swiper('.notice-line .swiper-container', {
   autoplay: true,
   loop: true
 });
+
 
 // PROMOTION SLIDE
 new Swiper('.promotion .swiper-container', {
@@ -109,3 +111,16 @@ function floatingObject(selector, delay, size) {
 floatingObject('.floating1', 1, 15);
 floatingObject('.floating2', 0.5, 15);
 floatingObject('.floating3', 1.5, 20);
+
+
+// SCROLLMAGIC
+const spyEls = document.querySelectorAll('section.scroll-spy');
+spyEls.forEach(function (spyEl) {
+  new ScrollMagic
+    .Scene({
+      triggerElement: spyEl, // 보여짐 여부를 감시할 요소를 지정
+      triggerHook: .8
+    })
+    .setClassToggle(spyEl, 'show')
+    .addTo(new ScrollMagic.Controller());
+});
